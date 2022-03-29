@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/24 15:17:36 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:08:17 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,7 @@ int	main(int argc, char **argv)
 	}
 	if (!(doublon(argc, &yuta)))
 		ft_putstr_fd("Error\n", 1);
-	ra(&yuta);
-	printf("%d\n", yuta.stacka[0]);
-	printf("%d\n", yuta.stacka[yuta.counta - 1]);
+	yuta.print = 1;
+	solve5(&yuta);
 	return (0);
 }

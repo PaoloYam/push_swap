@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:22:52 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/24 15:13:31 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/29 16:11:00 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	sa(t_vars *yuta)
 	tmp = yuta->stacka[0];
 	yuta->stacka[0] = yuta->stacka[1];
 	yuta->stacka[1] = tmp;
+	if (yuta->print == 1)
+		write(1, "sa\n", 3);
 }
 
 void	sb(t_vars *yuta)
@@ -35,13 +37,17 @@ void	sb(t_vars *yuta)
 	tmp = yuta->stackb[0];
 	yuta->stackb[0] = yuta->stackb[1];
 	yuta->stackb[1] = tmp;
+	if (yuta->print == 1)
+		write(1, "sb\n", 3); 
 }
 
 void	ss(t_vars *yuta)
 {
+	yuta->print = 0;
 	sa(yuta);
 	sb(yuta);
-	return ;
+	write(1, "ss\n", 3);
+	yuta->print = 1;
 }
 
 void	pa(t_vars *yuta)
@@ -68,6 +74,7 @@ void	pa(t_vars *yuta)
 	}
 	yuta->countb -= 1;
 	yuta->counta += 1;
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_vars *yuta)
@@ -94,4 +101,5 @@ void	pb(t_vars *yuta)
 	}
 	yuta->counta -= 1;
 	yuta->countb += 1;
+	write(1, "pb\n", 3);
 }

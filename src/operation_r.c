@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:21:55 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/24 15:22:52 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/29 16:09:09 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ void	ra(t_vars *yuta)
 		i++;
 	}
 	yuta->stacka[yuta->counta - 1] = first;
+	if (yuta->print == 1)
+		write(1, "ra\n", 3);
 }
 
 void	rb(t_vars *yuta)
@@ -50,11 +52,16 @@ void	rb(t_vars *yuta)
 		i++;
 	}
 	yuta->stackb[yuta->countb - 1] = first;
+	if (yuta->print == 1)
+		write(1, "rb\n", 3);
 }
 
 void	rr(t_vars *yuta)
 {
+	yuta->print = 0;
 	ra(yuta);
 	rb(yuta);
+	write(1, "rr\n", 3);
+	yuta->print = 1;
 }
 

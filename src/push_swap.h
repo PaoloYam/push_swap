@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:47:45 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/24 15:20:44 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:00:21 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ typedef struct s_vars {
 	int	argc;
 	int counta;
 	int	countb;
+	int	maxa;
+	int	maxb;
+	int	mina;
+	int	minb;
+	int	print;
 }	t_vars;
 
 void	sa(t_vars *yuta);
@@ -33,5 +38,11 @@ void	pb(t_vars *yuta);
 void	ra(t_vars *yuta);
 void	rb(t_vars *yuta);
 void	rr(t_vars *yuta);
-
+void	rra(t_vars *yuta);
+void	rrb(t_vars *yuta);
+void	rrr(t_vars *yuta);
+void	solve3(t_vars *yuta);
+void	check(t_vars *yuta);
+void 	solve5(t_vars *yuta);
+void	topelement(t_vars *yuta);
 #endif
