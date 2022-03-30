@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:22:52 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/29 16:11:00 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/30 15:10:39 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	pa(t_vars *yuta)
 		i = yuta->counta - 1;
 	if (!yuta->stackb)
 		return ;
-	while (i > 0)
+	while (i >= 0 && yuta->counta != 0)
 	{
 		yuta->stacka[i + 1] = yuta->stacka[i];
 		i--;
@@ -82,12 +82,12 @@ void	pb(t_vars *yuta)
 	int	i;
 	
 	if (yuta->countb == 0)
-			i = 0;
+		i = 0;
 	else
 		i = yuta->countb - 1;
 	if (!yuta->stacka)
 		return ;
-	while (i > 0)
+	while (i >= 0 && yuta->countb != 0)
 	{
 		yuta->stackb[i + 1] = yuta->stackb[i];
 		i--;

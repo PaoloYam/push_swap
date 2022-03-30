@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:37:23 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/29 18:08:11 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:10:30 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,26 @@ void	topelement(t_vars *yuta)
 {
 	int	i;
 	int	r;
-	int	tmp;
 	
 	i = 0;
-	r = 0;
 	yuta->mina = yuta->stacka[0];
 	while (i < yuta->counta)
 	{
 		if (yuta->stacka[i] < yuta->mina)
 		{
 			r = i;
-			tmp = yuta->stacka[i];
+			yuta->mina = yuta->stacka[i];
 		}
 		i++;
 	}		
 	if (r <= 1)
 	{
-		while (yuta->stacka[0] == tmp)
+		while (yuta->stacka[0] != yuta->mina)
 			ra(yuta);
 	}
 	if (r >= 2)
 	{
-		while (yuta->stacka[0] == tmp)
+		while (yuta->stacka[0] != yuta->mina)
 			rra(yuta);
 	}
 	pb(yuta);
@@ -48,6 +46,13 @@ void	topelement(t_vars *yuta)
 void	solve5(t_vars *yuta)
 {
 	topelement(yuta);
-	printf("%d\n", yuta->stackb[0]);
-	printf("%d\n", yuta->stacka[0]);
+	topelement(yuta);
+	solve3(yuta);
+	pa(yuta);
+	pa(yuta);
+/*	printf("%d\n", yuta->stacka[0]);
+	printf("%d\n", yuta->stacka[1]);
+	printf("%d\n", yuta->stacka[2]);
+	printf("%d\n", yuta->stacka[3]);
+	printf("%d\n", yuta->stacka[4]); */
 }

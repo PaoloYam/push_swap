@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/29 18:08:17 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/30 16:07:54 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,15 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	if (!(doublon(argc, &yuta)))
+	{
 		ft_putstr_fd("Error\n", 1);
+		return (0);
+	}
 	yuta.print = 1;
-	solve5(&yuta);
+	yuta.countb = 0;
+	if (argc == 4)
+		solve3(&yuta);
+	if (argc == 6)
+		solve5(&yuta);
 	return (0);
 }
