@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:37:23 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/30 16:45:59 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/03/30 17:04:12 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	solve5(t_vars *yuta)
 	solve3(yuta);
 	pa(yuta);
 	pa(yuta);
-/*	printf("%d\n", yuta->stacka[0]);
+	/*printf("%d\n", yuta->stacka[0]);
 	printf("%d\n", yuta->stacka[1]);
 	printf("%d\n", yuta->stacka[2]);
 	printf("%d\n", yuta->stacka[3]);
