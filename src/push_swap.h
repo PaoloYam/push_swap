@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:47:45 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/30 15:13:29 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/01 16:19:22 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	rrr(t_vars *yuta);
 void	solve3(t_vars *yuta);
 void	check(t_vars *yuta);
 void 	solve5(t_vars *yuta);
+void	solve(t_vars *yuta);
 void	topelement(t_vars *yuta);
 #endif

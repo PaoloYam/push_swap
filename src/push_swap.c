@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/30 16:07:54 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/01 19:07:51 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,7 @@ int	main(int argc, char **argv)
 		solve3(&yuta);
 	if (argc == 6)
 		solve5(&yuta);
+	if (argc > 6)
+		solve(&yuta);
 	return (0);
 }

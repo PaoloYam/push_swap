@@ -6,11 +6,11 @@
 #    By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 10:40:50 by pyammoun          #+#    #+#              #
-#    Updated: 2022/03/30 15:13:09 by pyammoun         ###   ########.fr        #
+#    Updated: 2022/04/01 16:17:47 by pyammoun         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =	${addprefix src/, push_swap.c operation_sp.c operation_r.c operation_rr.c solve3.c solve5.c}
+SRCS =	${addprefix src/, push_swap.c operation_sp.c operation_r.c operation_rr.c solve3.c solve5.c solve.c}
 OBJS        =	${SRCS:.c=.o}
 NAME        =	push_swap
 AR    		=	ar rcs
