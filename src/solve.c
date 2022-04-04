@@ -6,13 +6,35 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:47:30 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/01 19:07:55 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:32:18 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	radix(t_vars *yuta)
+{
+	int	i;
+	int	j;
 
+	i = 0;
+	while (checku(yuta) == 0)
+	{
+		j = 0;
+		while (j < yuta->counta)
+		{
+			if ((yuta->stacka[j] >> i) & 1)
+				ra(yuta);
+			else
+				pb(yuta);
+			j++;
+		}
+		while (yuta->countb != 0)
+			pa(yuta);
+		i++;
+	}
+
+}
 
 void	solve(t_vars *yuta)
 {
@@ -56,5 +78,8 @@ void	solve(t_vars *yuta)
 		i++;
 	}
 	free(number);
+	radix(yuta);
 }
+
+
 

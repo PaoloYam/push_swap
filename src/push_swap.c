@@ -6,20 +6,20 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/01 19:07:51 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/04 16:04:14 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	checku(int argc, t_vars *yuta)
+int	checku(t_vars *yuta)
 {
 	int	a;
 	int b;
 
 	a = 0;
 	b = 1;
-	while (b < argc - 1)
+	while (b < yuta->counta - 1)
 	{
 		if (yuta->stacka[a] < yuta->stacka[b])
 		{
@@ -96,7 +96,7 @@ int	main(int argc, char **argv)
 		}
 	}
 	table(argc, argv, &yuta);
-	if (checku(argc, &yuta))
+	if (checku(&yuta))
 	{
 		printf("Deja trie");
 		return (0);
