@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:47:30 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/04 17:39:13 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:38:06 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ void	radix(t_vars *yuta)
 {
 	int	i;
 	int	j;
-
+	int	len;
 	i = 0;
+	len = yuta->counta - 1;
 	while (checku(yuta) == 0)
 	{
 		j = 0;
-		while (j < yuta->counta)
+		while (j <= len)
 		{
-			if ((yuta->stacka[j] >> i) & 1)
+			if (((yuta->stacka[0] >> i) & 1) == 1)
 				ra(yuta);
 			else
 				pb(yuta);
@@ -33,7 +34,7 @@ void	radix(t_vars *yuta)
 			pa(yuta);
 		i++;
 	}
-
+	print(yuta);
 }
 
 void	solve(t_vars *yuta)
@@ -47,23 +48,26 @@ void	solve(t_vars *yuta)
 	j = 0;
 	number = malloc(sizeof(int) * (yuta->counta));
 	while (i < yuta->counta)
-		number[i] = yuta->stacka[i], i++;
+	{
+		number[i] = yuta->stacka[i];
+		i++;
+	}
 	i = 0;
 	while (i < yuta->counta)
-    {
+	{
 		j = i + 1;
-    	while (j < yuta->counta)
-        {
-            if (number[i] > number[j]) 
-            {
-                a =  number[i];
-                number[i] = number[j];
-            	number[j] = a;
-            }
-			j++; 
-        }
-		i++; 
-     }
+		while (j < yuta->counta)
+		{
+			if (number[i] > number[j])
+			{
+				a = number[i];
+				number[i] = number[j];
+				number[j] = a;
+			}
+			j++;
+		}
+		i++;
+	}
 	i = 0;
 	j = 0;
 	while (i < yuta->counta)
@@ -77,9 +81,7 @@ void	solve(t_vars *yuta)
 		}
 		i++;
 	}
+	print(yuta);
 	free(number);
 	radix(yuta);
 }
-
-
-

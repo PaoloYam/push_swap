@@ -6,25 +6,46 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/04 17:17:07 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:32:51 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	print(t_vars *yuta)
+{
+	int	i;
+
+	i = 0;
+	printf("stacka: ");
+	while (i < yuta->counta)
+	{
+		printf("%d ", yuta->stacka[i]);
+		i++;
+	}
+	i = 0;
+	printf(" stackb: ");
+	while (i < yuta->countb)
+	{
+		printf("%d ", yuta->stackb[i]);
+		i++;
+	}
+	printf("\n");
+}
+
 int	checku(t_vars *yuta)
 {
 	int	a;
-	int b;
+	int	b;
 
 	a = 0;
 	b = 1;
-	while (b < yuta->counta - 1)
+	while (b < yuta->counta)
 	{
 		if (yuta->stacka[a] < yuta->stacka[b])
 		{
 			a++;
-			b++;	
+			b++;
 		}	
 		else
 			return (0);
@@ -80,14 +101,14 @@ int	main(int argc, char **argv)
 {
 	int		i;
 	t_vars	yuta;
-	
+
 	i = 0;
 	if (argc == 2)
 	{
 		while (argv[1][i] != 0)
 		{
 			if (ft_isdigit(argv[1][i]) || argv[1][i] == ' ')
-					i++;
+				i++;
 			else
 			{
 				ft_putstr_fd("Error\n", 1);

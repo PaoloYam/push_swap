@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 14:21:55 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/30 16:07:29 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:23:21 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ra(t_vars *yuta)
 {
 	int	tmp;
-	int i;
+	int	i;
 	int	first;
 
 	tmp = 0;
@@ -23,7 +23,7 @@ void	ra(t_vars *yuta)
 	if (!yuta->stacka)
 		return ;
 	first = yuta->stacka[0];
-	while (i < yuta->counta - 1) 
+	while (i < yuta->counta - 1)
 	{
 		tmp = yuta->stacka[i];
 		yuta->stacka[i] = yuta->stacka[i + 1];
@@ -37,7 +37,7 @@ void	ra(t_vars *yuta)
 void	rb(t_vars *yuta)
 {
 	int	tmp;
-	int i;
+	int	i;
 	int	first;
 
 	tmp = 0;
@@ -45,7 +45,7 @@ void	rb(t_vars *yuta)
 	if (!yuta->stackb)
 		return ;
 	first = yuta->stackb[0];
-	while (i < yuta->countb - 1) 
+	while (i < yuta->countb - 1)
 	{
 		tmp = yuta->stackb[i];
 		yuta->stackb[i] = yuta->stackb[i + 1];
@@ -64,4 +64,3 @@ void	rr(t_vars *yuta)
 	write(1, "rr\n", 3);
 	yuta->print = 1;
 }
-

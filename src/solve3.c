@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:29:06 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/04 16:04:33 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:26:21 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check(t_vars *yuta)
 void	solve3(t_vars *yuta)
 {
 	int	i;
-	
+
 	i = 0;
 	yuta->maxa = yuta->stacka[0];
 	yuta->mina = yuta->stacka[0];

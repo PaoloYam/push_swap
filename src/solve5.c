@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:37:23 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/03/30 17:04:12 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:27:28 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	topelement(t_vars *yuta)
 {
 	int	i;
 	int	r;
-	
+
 	i = 0;
 	yuta->mina = yuta->stacka[0];
 	while (i < yuta->counta)
@@ -41,8 +41,6 @@ void	topelement(t_vars *yuta)
 	pb(yuta);
 }
 
-
-
 void	solve5(t_vars *yuta)
 {
 	topelement(yuta);
@@ -50,9 +48,4 @@ void	solve5(t_vars *yuta)
 	solve3(yuta);
 	pa(yuta);
 	pa(yuta);
-	/*printf("%d\n", yuta->stacka[0]);
-	printf("%d\n", yuta->stacka[1]);
-	printf("%d\n", yuta->stacka[2]);
-	printf("%d\n", yuta->stacka[3]);
-	printf("%d\n", yuta->stacka[4]); */
 }
