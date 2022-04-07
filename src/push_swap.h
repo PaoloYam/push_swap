@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:47:45 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/06 15:33:34 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/07 17:44:51 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@
 # include "../libft/libft.h"
 
 typedef struct s_vars {
-	int	*stacka;
-	int	*stackb;
-	int	argc;
-	int	counta;
-	int	countb;
-	int	maxa;
-	int	maxb;
-	int	mina;
-	int	minb;
-	int	print;
+	int		*stacka;
+	int		*stackb;
+	char	**args;
+	int		argc;
+	int		counta;
+	int		countb;
+	int		maxa;
+	int		maxb;
+	int		mina;
+	int		minb;
+	int		print;
 }	t_vars;
 
 void	sa(t_vars *yuta);
@@ -47,5 +48,8 @@ void	solve5(t_vars *yuta);
 void	solve(t_vars *yuta);
 void	topelement(t_vars *yuta);
 int		checku(t_vars *yuta);
+int		doublon(t_vars *yuta);
+int		getarg(t_vars *yuta, char **argv);
 void	print(t_vars *yuta);
+int		tablesplit(t_vars *yuta);
 #endif

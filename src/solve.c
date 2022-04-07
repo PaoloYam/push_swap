@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:47:30 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/06 15:38:06 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:09:45 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	radix(t_vars *yuta)
 	int	i;
 	int	j;
 	int	len;
+
 	i = 0;
+	print(yuta);
 	len = yuta->counta - 1;
-	while (checku(yuta) == 0)
+	while (i < 1)
 	{
 		j = 0;
 		while (j <= len)
@@ -34,24 +36,14 @@ void	radix(t_vars *yuta)
 			pa(yuta);
 		i++;
 	}
-	print(yuta);
 }
 
-void	solve(t_vars *yuta)
+void	sorting(t_vars *yuta, int *number)
 {
+	int	tmp;
 	int	i;
-	int	*number;
 	int	j;
-	int	a;
 
-	i = 0;
-	j = 0;
-	number = malloc(sizeof(int) * (yuta->counta));
-	while (i < yuta->counta)
-	{
-		number[i] = yuta->stacka[i];
-		i++;
-	}
 	i = 0;
 	while (i < yuta->counta)
 	{
@@ -60,16 +52,22 @@ void	solve(t_vars *yuta)
 		{
 			if (number[i] > number[j])
 			{
-				a = number[i];
+				tmp = number[i];
 				number[i] = number[j];
-				number[j] = a;
+				number[j] = tmp;
 			}
 			j++;
 		}
 		i++;
-	}
+	}	
+}
+
+void	replace(t_vars *yuta, int *number)
+{
+	int	i;
+	int	j;
+
 	i = 0;
-	j = 0;
 	while (i < yuta->counta)
 	{
 		j = 0;
@@ -81,7 +79,24 @@ void	solve(t_vars *yuta)
 		}
 		i++;
 	}
-	print(yuta);
+}
+
+void	solve(t_vars *yuta)
+{
+	int	i;
+	int	*number;
+	int	j;
+
+	i = 0;
+	j = 0;
+	number = malloc(sizeof(int) * (yuta->counta));
+	while (i < yuta->counta)
+	{
+		number[i] = yuta->stacka[i];
+		i++;
+	}
+	sorting(yuta, number);
+	replace(yuta, number);
 	free(number);
 	radix(yuta);
 }

@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/06 15:32:51 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:09:47 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,50 +33,6 @@ void	print(t_vars *yuta)
 	printf("\n");
 }
 
-int	checku(t_vars *yuta)
-{
-	int	a;
-	int	b;
-
-	a = 0;
-	b = 1;
-	while (b < yuta->counta)
-	{
-		if (yuta->stacka[a] < yuta->stacka[b])
-		{
-			a++;
-			b++;
-		}	
-		else
-			return (0);
-	}
-	return (1);
-}
-
-int	doublon(int argc, t_vars *yuta)
-{
-	int	a;
-	int	b;
-
-	a = 0;
-	b = 0;
-	while (a < argc - 2)
-	{
-		b = 0;
-		while (b < argc - 1)
-		{
-			if (b == a)
-				b++;
-			if (yuta->stacka[a] != yuta->stacka[b])
-				b++;
-			else
-				return (0);
-		}
-		a++;
-	}
-	return (1);
-}
-
 int	table(int argc, char **argv, t_vars *yuta)
 {
 	int		i;
@@ -97,43 +53,38 @@ int	table(int argc, char **argv, t_vars *yuta)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	control(t_vars *yuta)
 {
-	int		i;
-	t_vars	yuta;
-
-	i = 0;
-	if (argc == 2)
-	{
-		while (argv[1][i] != 0)
-		{
-			if (ft_isdigit(argv[1][i]) || argv[1][i] == ' ')
-				i++;
-			else
-			{
-				ft_putstr_fd("Error\n", 1);
-				return (0);
-			}
-		}
-	}
-	table(argc, argv, &yuta);
-	if (checku(&yuta))
-	{
-		printf("Deja trie");
+	if (checku(yuta))
 		return (0);
-	}
-	if (!(doublon(argc, &yuta)))
+	if (!(doublon(yuta)))
 	{
 		ft_putstr_fd("Error\n", 1);
 		return (0);
 	}
-	yuta.print = 1;
-	yuta.countb = 0;
-	if (argc == 4)
+	yuta->print = 1;
+	yuta->countb = 0;
+	return (1);
+}
+
+int	main(int argc, char **argv)
+{
+	t_vars	yuta;
+
+	if (argc == 2)
+	{
+		if (getarg(&yuta, argv) == 0)
+			return (0);
+	}
+	else
+		table(argc, argv, &yuta);
+	if (control(&yuta) == 0)
+		return (0);
+	if (yuta.argc == 4)
 		solve3(&yuta);
-	if (argc == 6)
+	if (yuta.argc == 6)
 		solve5(&yuta);
-	if (argc > 6)
+	if (yuta.argc > 6)
 		solve(&yuta);
 	return (0);
 }
