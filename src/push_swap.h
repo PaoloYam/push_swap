@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:47:45 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/07 17:44:51 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:24:28 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 # include "../libft/libft.h"
+
 
 typedef struct s_vars {
 	int		*stacka;

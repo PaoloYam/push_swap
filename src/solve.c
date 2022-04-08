@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 16:47:30 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/07 18:09:45 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:15:35 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	radix(t_vars *yuta)
 	int	len;
 
 	i = 0;
-	print(yuta);
 	len = yuta->counta - 1;
-	while (i < 1)
+	while (checku(yuta) == 0)
 	{
 		j = 0;
 		while (j <= len)
@@ -73,8 +72,11 @@ void	replace(t_vars *yuta, int *number)
 		j = 0;
 		while (j < yuta->counta)
 		{
-			if (yuta->stacka[j] == number[i])
-				yuta->stacka[j] = i;
+			if (yuta->stacka[i] == number[j])
+			{
+				yuta->stacka[i] = j;
+				j = yuta->counta - 1;
+			}
 			j++;
 		}
 		i++;
@@ -92,8 +94,9 @@ void	solve(t_vars *yuta)
 	number = malloc(sizeof(int) * (yuta->counta));
 	while (i < yuta->counta)
 	{
-		number[i] = yuta->stacka[i];
+		number[i] = yuta->stacka[j];
 		i++;
+		j++;
 	}
 	sorting(yuta, number);
 	replace(yuta, number);

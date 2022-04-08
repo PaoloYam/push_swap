@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/07 18:09:47 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:34:10 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ int	main(int argc, char **argv)
 			return (0);
 	}
 	else
-		table(argc, argv, &yuta);
+		if(table(argc, argv, &yuta) == 0)
+			return (0);
 	if (control(&yuta) == 0)
 		return (0);
 	if (yuta.argc == 4)
