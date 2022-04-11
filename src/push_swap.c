@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:42:42 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/08 15:34:10 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/11 21:36:41 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,21 @@ void	print(t_vars *yuta)
 	printf("\n");
 }
 
+void	freetime(t_vars *yuta)
+{
+	free (yuta->stacka);
+	free (yuta->stackb);
+}
+
 int	table(int argc, char **argv, t_vars *yuta)
 {
 	int		i;
 	int		j;
+	int		c;
 
 	i = 0;
 	j = 1;
+	c = 1;
 	yuta->stacka = malloc(sizeof(int) * (argc - 1));
 	if (yuta->stacka == NULL)
 		return (0);
@@ -47,7 +55,12 @@ int	table(int argc, char **argv, t_vars *yuta)
 	if (yuta->stackb == NULL)
 		return (0);
 	while (j < argc)
-		yuta->stacka[i++] = ft_atoi(argv[j++]);
+	{
+		yuta->stacka[i++] = ft_atoi(argv[j++], &c);
+		yuta->bul = c;
+		if (c == 0)
+			return (0);
+	}
 	yuta->counta = i;
 	yuta->argc = argc;
 	return (1);
@@ -71,14 +84,30 @@ int	main(int argc, char **argv)
 {
 	t_vars	yuta;
 
-	if (argc == 2)
+	/*if (argc == 2)
 	{
 		if (getarg(&yuta, argv) == 0)
+		{
+			freetime(&yuta);
 			return (0);
+		}
 	}
 	else
-		if(table(argc, argv, &yuta) == 0)
+	{
+		if (table(argc, argv, &yuta) == 0)
+		{
+			freetime(&yuta);
 			return (0);
+		}
+	}*/
+	if ((argc == 2 && getarg(&yuta, argv) == 0)
+			|| (argc != 2 && table(argc, argv, &yuta) == 0))
+	{
+			freetime(&yuta);
+			if (yuta.bul == 0)
+				ft_putstr_fd("Error\n", 1);
+			return (0);
+	}
 	if (control(&yuta) == 0)
 		return (0);
 	if (yuta.argc == 4)
@@ -87,5 +116,6 @@ int	main(int argc, char **argv)
 		solve5(&yuta);
 	if (yuta.argc > 6)
 		solve(&yuta);
+	freetime(&yuta);
 	return (0);
 }

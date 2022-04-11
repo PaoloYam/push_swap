@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 15:05:02 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/08 15:16:06 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/11 21:36:43 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ int	doublon(t_vars *yuta)
 int	tablesplit(t_vars *yuta)
 {
 	int	i;
+	int	c;
 
 	i = 0;
+	c = 1;
 	yuta->stacka = malloc(sizeof(int) * yuta->counta);
 	if (yuta->stacka == NULL)
 		return (0);
@@ -69,16 +71,16 @@ int	tablesplit(t_vars *yuta)
 		return (0);
 	while (i < yuta->counta)
 	{
-		yuta->stacka[i] = ft_atoi(yuta->args[i]);
+		yuta->stacka[i] = ft_atoi(yuta->args[i], &c);
+		yuta->bul = c;
+		if (c == 0)
+			return (0);
 		i++;
 	}
 	while (i >= 0)
-	{
-		free (yuta->args[i]);
-		i--;
-	}
+		free (yuta->args[i--]);
 	free (yuta->args);
-	return (0);
+	return (1);
 }
 
 int	getarg(t_vars *yuta, char **argv)
@@ -104,6 +106,7 @@ int	getarg(t_vars *yuta, char **argv)
 		i++;
 	yuta->counta = i;
 	yuta->argc = i + 1;
-	tablesplit(yuta);
+	if (tablesplit(yuta) == 0)
+		return (0);
 	return (1);
 }

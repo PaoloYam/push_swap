@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 10:47:45 by pyammoun          #+#    #+#             */
-/*   Updated: 2022/04/08 15:24:28 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/11 21:29:43 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <limits.h>
 # include "../libft/libft.h"
 
-
 typedef struct s_vars {
 	int		*stacka;
 	int		*stackb;
@@ -26,11 +25,8 @@ typedef struct s_vars {
 	int		argc;
 	int		counta;
 	int		countb;
-	int		maxa;
-	int		maxb;
-	int		mina;
-	int		minb;
 	int		print;
+	int		bul;
 }	t_vars;
 
 void	sa(t_vars *yuta);
