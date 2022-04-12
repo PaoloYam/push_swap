@@ -6,7 +6,7 @@
 /*   By: pyammoun <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 12:29:57 by pyammoun          #+#    #+#             */
-/*   Updated: 2021/11/09 14:15:46 by pyammoun         ###   ########.fr       */
+/*   Updated: 2022/04/11 20:28:01 by pyammoun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	main(void)
 	printf("%d\n", ft_atoi(str));
 	printf("%d", atoi(str));
 }*/
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int *c)
 {
-	int	i;
-	int	m;
-	int	r;
+	int			i;
+	long double	m;
+	long double	r;
 
 	i = 0;
 	m = 1;
@@ -42,5 +42,9 @@ int	ft_atoi(const char *str)
 		r = r * 10 + (str[i] - 48);
 		i++;
 	}
-	return (m * r);
+	if ((m * r) > 2147483647)
+		*c = 0;
+	if ((m * r) < -2147483648)
+		*c = 0;
+	return ((int)(m * r));
 }
